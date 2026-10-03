@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.CommonUtils.ConnectionUtil | Тип: ModuleScript
+-- Ignored

@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.CameraModule.TransparencyController | Тип: ModuleScript
+-- Ignored

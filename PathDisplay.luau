@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.ControlModule.PathDisplay | Тип: ModuleScript
+-- Ignored

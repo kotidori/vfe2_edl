@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.CameraModule.VehicleCamera.VehicleCameraConfig | Тип: ModuleScript
+-- Ignored

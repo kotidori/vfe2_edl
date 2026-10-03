@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.CameraModule.CameraToggleStateController | Тип: ModuleScript
+-- Ignored

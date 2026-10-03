@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.CommonUtils.FlagUtil | Тип: ModuleScript
+-- Ignored

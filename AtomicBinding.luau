@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.RbxCharacterSounds.AtomicBinding | Тип: ModuleScript
+-- Ignored

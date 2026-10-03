@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.CommonUtils.CharacterUtil | Тип: ModuleScript
+-- Ignored

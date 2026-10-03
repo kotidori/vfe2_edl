@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.ControlModule.ClickToMoveController | Тип: ModuleScript
+-- Ignored

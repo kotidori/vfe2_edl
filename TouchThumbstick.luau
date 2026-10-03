@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.ControlModule.TouchThumbstick | Тип: ModuleScript
+-- Ignored

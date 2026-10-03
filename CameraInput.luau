@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.CameraModule.CameraInput | Тип: ModuleScript
+-- Ignored

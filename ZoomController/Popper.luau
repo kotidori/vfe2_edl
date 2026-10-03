@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.CameraModule.ZoomController.Popper | Тип: ModuleScript
+-- Ignored

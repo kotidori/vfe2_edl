@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.CameraModule.VRBaseCamera | Тип: ModuleScript
+-- Ignored

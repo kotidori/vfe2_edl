@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.ControlModule.Gamepad | Тип: ModuleScript
+-- Ignored

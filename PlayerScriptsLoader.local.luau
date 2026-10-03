@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerScriptsLoader | Тип: LocalScript
+-- Ignored

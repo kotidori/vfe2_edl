@@ -1,0 +1,197 @@
+-- Путь: StarterPlayer.StarterCharacterScripts.DirectionalMovement | Тип: LocalScript
+-- Saved by UniversalSynSaveInstance (Join to Copy Games) https://discord.gg/wx4ThpAsmw
+
+-- Bytecode (Base64):
+-- BgM5DVJvb3RKb2ludFRpbHQGQ0ZyYW1lBkFuZ2xlcwlSb290Sm9pbnQGdW5wYWNrBExlcnALUm9vdEpvaW50QzACQzAITmVja1RpbHQETmVjawZOZWNrQzARUmlnaHRTaG91bGRlclRpbHQNUmlnaHRTaG91bGRlcg9SaWdodFNob3VsZGVyQzAQTGVmdFNob3VsZGVyVGlsdAxMZWZ0U2hvdWxkZXIOTGVmdFNob3VsZGVyQzAMUmlnaHRIaXBUaWx0CFJpZ2h0SGlwClJpZ2h0SGlwQzALTGVmdEhpcFRpbHQHTGVmdEhpcAlMZWZ0SGlwQzAKTGVycEpvaW50cwNuZXcLUmVzZXRKb2ludHMJd29ya3NwYWNlEEdldFNlcnZlclRpbWVOb3cNTm9EaXJlY3Rpb25hbAxHZXRBdHRyaWJ1dGUNTW92ZURpcmVjdGlvbhNWZWN0b3JUb09iamVjdFNwYWNlBFVuaXQDRG90AVoEbWF0aANyYWQBWBlVcGRhdGVEaXJlY3Rpb25hbE1vdmVtZW50BGdhbWUKUnVuU2VydmljZQpHZXRTZXJ2aWNlB1BsYXllcnMLTG9jYWxQbGF5ZXIJQ2hhcmFjdGVyDkNoYXJhY3RlckFkZGVkBFdhaXQISHVtYW5vaWQMV2FpdEZvckNoaWxkEEh1bWFub2lkUm9vdFBhcnQFVG9yc28OUmlnaHQgU2hvdWxkZXINTGVmdCBTaG91bGRlcglSaWdodCBIaXAITGVmdCBIaXAJSGVhcnRiZWF0B0Nvbm5lY3QABAgCAwAAALsB+wIAAPsEAABNAwQCAAAAAKQFAwAACBCATQcBrwQAAAC7NQcCpAYGAAAAUECfBgIAnwUAAm8GBwC8AwNfCAAAAJ8DBAIwAwICAAAAAPsDAQBNAgOvBAAAAPsFAgBNBAUUCQAAAPsGAABNBQYCAAAAAAkDBAUwAwLtCgAAAPsCAAD7BAAATQMErwsAAACkBQMAAAgQgE0HAeQMAAAAuzUHAqQGBgAAAFBAnwYCAJ8FAAJvBgcAvAMDXwgAAACfAwQCMAMCrwsAAAD7AwEATQID5AwAAAD7BQIATQQFwQ0AAAD7BgAATQUGrwsAAAAJAwQFMAMC7QoAAAD7AgAA+wQAAE0DBBMOAAAApAUDAAAIEIBNBwHLDwAAALs1BwKkBgYAAABQQJ8GAgCfBQACbwYHALwDA18IAAAAnwMEAjADAhMOAAAA+wMBAE0CA8sPAAAA+wUCAE0EBWQQAAAA+wYAAE0FBhMOAAAACQMEBTADAu0KAAAA+wIAAPsEAABNAwRQEQAAAKQFAwAACBCATQcBUhIAAAC7NQcCpAYGAAAAUECfBgIAnwUAAm8GBwC8AwNfCAAAAJ8DBAIwAwJQEQAAAPsDAQBNAgNSEgAAAPsFAgBNBAXVEwAAAPsGAABNBQZQEQAAAAkDBAUwAwLtCgAAAPsCAAD7BAAATQMEdhQAAACkBQMAAAgQgE0HARoVAAAAuzUHAqQGBgAAAFBAnwYCAJ8FAAJvBgcAvAMDXwgAAACfAwQCMAMCdhQAAAD7AwEATQIDGhUAAAD7BQIATQQFUBYAAAD7BgAATQUGdhQAAAAJAwQFMAMC7QoAAAD7AgAA+wQAAE0DBCgXAAAApAUDAAAIEIBNBwEfGAAAALs1BwKkBgYAAABQQJ8GAgCfBQACbwYHALwDA18IAAAAnwMEAjADAigXAAAA+wMBAE0CAx8YAAAA+wUCAE0EBd8ZAAAA+wYAAE0FBigXAAAACQMEBTADAu0KAAAAggABABoDAQMCAwMEAAgQgAMEAwUEAABQQAKPwvUoXI/CPwMGAwcDCAMJAwoDCwMMAw0DDgMPAxADEQMSAxMDFAMVAxYDFwArGAEYAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAACAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAASwAAAAAAwADAAAAVfsBAABNAAGvAAAAAPsCAQBNAQIUAQAAADABAO0CAAAA+wEAAE0AAeQDAAAA+wIBAE0BAsEEAAAAMAEA7QIAAAD7AQAATQABywUAAAD7AgEATQECZAYAAAAwAQDtAgAAAPsBAABNAAFSBwAAAPsCAQBNAQLVCAAAADABAO0CAAAA+wEAAE0AARoJAAAA+wIBAE0BAlAKAAAAMAEA7QIAAAD7AQAATQABHwsAAAD7AgEATQEC3wwAAAAwAQDtAgAAAPsAAgCkAQ8AADjQgJ8BAQIwAQACEAAAAPsAAgCkAQ8AADjQgJ8BAQIwAQCvEQAAAPsAAgCkAQ8AADjQgJ8BAQIwAQATEgAAAPsAAgCkAQ8AADjQgJ8BAQIwAQBQEwAAAPsAAgCkAQ8AADjQgJ8BAQIwAQB2FAAAAPsAAgCkAQ8AADjQgJ8BAQIwAQAoFQAAAIIAAQAWAwQDBwMIAwoDCwMNAw4DEAMRAxMDFAMWAxcDAgMZBAA40IADAQMJAwwDDwMSAxUAPxoBGAAAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAEAAAAAAAAAAQAAAAAAAAABAAAAAAAAAAMAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAFBAAAAAA0BBgAAKgAACAgGHwIIBpkBAggGjwICCAaFAwIIBv8DAggG0AQCCAa9BQIIBo4GArUHpAEBAAAAAEC8AQG3AgAAAJ8BAgL7AwAAJgIBA28DAwB9A6sDAgAAAN4BAAD7AgEAbwQEALwCAhIFAAAAnwIDAioCBAABAACA+wICAJ8CAQGCAAEA+wMDAE0CA4UGAAAA+wUEAE0EBWkHAAAAvAIC7AgAAACfAgMCbwYJAE0FBgcKAAAAvAMCKwsAAACfAwMCbwQMAGAEcgADAAAA+wMFAFIEAgDiBRMA/wYAAAMAAABNCgJ7FQAAADkJCgC7FgkCpAgYAABcYIGfCAICWwcIFIwIAABNDAJ5GgAAADkLDAC7FgsCpAoYAABcYIGfCgICWwkKGcUGBwQBAAAAMAYFrw0AAAD/BgAAAwAAAE0JAnsVAAAAuxYJAqQIGAAAXGCBnwgCAlsHCBSMCAAATQsCeRoAAAC7FgsCpAoYAABcYIGfCgICWwkKG8UGBwQBAAAAMAYF5A4AAAD/BgAAAwAAAIwHAABNCwJ5GgAAADkKCwC7FgoCpAkYAABcYIGfCQICWwgJHIwJAADFBgcEAQAAADAGBcsPAAAA/wYAAAMAAACMBwAATQsCeRoAAAA5CgsAuxYKAqQJGAAAXGCBnwkCAlsICRyMCQAAxQYHBAEAAAAwBgVSEAAAAP8GAAADAAAAjAcAAE0LAnkaAAAAOQoLALsWCgKkCRgAAFxggZ8JAgJbCAkcjAkAAMUGBwQBAAAAMAYFGhEAAAD/BgAAAwAAAIwHAABNCwJ5GgAAADkKCwC7FgoCpAkYAABcYIGfCQICWwgJHIwJAADFBgcEAQAAADAGBR8SAAAAnwMDAYIAAQBvBh0ATQUGBwoAAAC8AwIrCwAAAJ8DAwJvBAwAYARuAAMAAAD7AwUAUgQCAOIFEwD/BgAAAwAAAE0KAnsVAAAAOQkKALsWCQKkCBgAAFxggZ8IAgJbBwgUjAgAAE0LAnkaAAAAuxYLAqQKGAAAXGCBnwoCAlsJChnFBgcEAQAAADAGBa8NAAAA/wYAAAMAAABNCQJ7FQAAALsWCQKkCBgAAFxggZ8IAgJbBwgUjAgAAE0MAnkaAAAAOQsMALsWCwKkChgAAFxggZ8KAgJbCQoZxQYHBAEAAAAwBgXkDgAAAP8GAAADAAAAjAcAAE0KAnkaAAAAuxYKAqQJGAAAXGCBnwkCAlsICRyMCQAAxQYHBAEAAAAwBgXLDwAAAP8GAAADAAAAjAcAAE0KAnkaAAAAuxYKAqQJGAAAXGCBnwkCAlsICRyMCQAAxQYHBAEAAAAwBgVSEAAAAP8GAAADAAAAjAcAAE0KAnkaAAAAuxYKAqQJGAAAXGCBnwkCAlsICRyMCQAAxQYHBAEAAAAwBgUaEQAAAP8GAAADAAAAjAcAAE0KAnkaAAAAuxYKAqQJGAAAXGCBnwkCAlsICRyMCQAAxQYHBAEAAAAwBgUfEgAAAJ8DAwGCAAEAbwYeAE0FBgcKAAAAvAMCKwsAAACfAwMCbwQMAGAEbgADAAAA+wMFAFIEAgDiBRMA/wYAAAMAAABNCgJ7FQAAADkJCgC7FgkCpAgYAABcYIGfCAICWwcIFIwIAABNCwJ5GgAAALsWCwKkChgAAFxggZ8KAgJbCQoZxQYHBAEAAAAwBgWvDQAAAP8GAAADAAAATQkCexUAAAC7FgkCpAgYAABcYIGfCAICWwcIFIwIAABNDAJ5GgAAADkLDAC7FgsCpAoYAABcYIGfCgICWwkKGcUGBwQBAAAAMAYF5A4AAAD/BgAAAwAAAIwHAABNCgJ5GgAAALsWCgKkCRgAAFxggZ8JAgJbCAkcjAkAAMUGBwQBAAAAMAYFyw8AAAD/BgAAAwAAAIwHAABNCgJ5GgAAALsWCgKkCRgAAFxggZ8JAgJbCAkcjAkAAMUGBwQBAAAAMAYFUhAAAAD/BgAAAwAAAIwHAABNCgJ5GgAAALsWCgKkCRgAAFxggZ8JAgJbCAkcjAkAAMUGBwQBAAAAMAYFGhEAAAD/BgAAAwAAAIwHAABNCgJ5GgAAALsWCgKkCRgAAFxggZ8JAgJbCAkcjAkAAMUGBwQBAAAAMAYFHxIAAACfAwMBggABAG8GHwBNBQYHCgAAALwDAisLAAAAnwMDAm8EDABgBHIAAwAAAPsDBQBSBAIA4gUTAP8GAAADAAAATQoCexUAAAA5CQoAuxYJAqQIGAAAXGCBnwgCAlsHCBSMCAAATQwCeRoAAAA5CwwAuxYLAqQKGAAAXGCBnwoCAlsJChnFBgcEAQAAADAGBa8NAAAA/wYAAAMAAABNCQJ7FQAAALsWCQKkCBgAAFxggZ8IAgJbBwgUjAgAAE0LAnkaAAAAuxYLAqQKGAAAXGCBnwoCAlsJChvFBgcEAQAAADAGBeQOAAAA/wYAAAMAAACMBwAATQsCeRoAAAA5CgsAuxYKAqQJGAAAXGCBnwkCAlsICRyMCQAAxQYHBAEAAAAwBgXLDwAAAP8GAAADAAAAjAcAAE0LAnkaAAAAOQoLALsWCgKkCRgAAFxggZ8JAgJbCAkcjAkAAMUGBwQBAAAAMAYFUhAAAAD/BgAAAwAAAIwHAABNCwJ5GgAAADkKCwC7FgoCpAkYAABcYIGfCQICWwgJHIwJAADFBgcEAQAAADAGBRoRAAAA/wYAAAMAAACMBwAATQsCeRoAAAA5CgsAuxYKAqQJGAAAXGCBnwkCAlsICRyMCQAAxQYHBAEAAAAwBgUfEgAAAJ8DAwGCAAEAbwYgAE0FBgcKAAAAvAMCKwsAAACfAwMCbwQMAGAESQADAAAA+wMFAFIEAgDiBRMA/wYAAAMAAABNCgJ7FQAAADkJCgC7FgkCpAgYAABcYIGfCAICWwcIHIwIAACMCQAAxQYHBAEAAAAwBgWvDQAAAP8GAAADAAAATQkCexUAAAC7FgkCpAgYAABcYIGfCAICWwcIHIwIAACMCQAAxQYHBAEAAAAwBgXkDgAAAP8GAAADAAAAjAcAAIwIAACMCQAAxQYHBAEAAAAwBgXLDwAAAP8GAAADAAAAjAcAAIwIAACMCQAAxQYHBAEAAAAwBgVSEAAAAP8GAAADAAAAjAcAAIwIAACMCQAAxQYHBAEAAAAwBgUaEQAAAP8GAAADAAAAjAcAAIwIAACMCQAAxQYHBAEAAAAwBgUfEgAAAJ8DAwGCAAEAbwYhAE0FBgcKAAAAvAMCKwsAAACfAwMCbwQMAGAEZQADAAAA+wMFAFIEAgDiBRMA/wYAAAMAAACMBwAAjAgAAE0MAnkaAAAAOQsMALsWCwKkChgAAFxggZ8KAgJbCQoixQYHBAEAAAAwBgWvDQAAAP8GAAADAAAAjAcAAIwIAABNCwJ5GgAAALsWCwKkChgAAFxggZ8KAgJbCQoixQYHBAEAAAAwBgXkDgAAAP8GAAADAAAAjAcAAE0LAnkaAAAAOQoLALsWCgKkCRgAAFxggZ8JAgJbCAkbjAkAAMUGBwQBAAAAMAYFyw8AAAD/BgAAAwAAAIwHAABNCwJ5GgAAADkKCwC7FgoCpAkYAABcYIGfCQICWwgJG4wJAADFBgcEAQAAADAGBVIQAAAA/wYAAAMAAACMBwAATQsCeRoAAAA5CgsAuxYKAqQJGAAAXGCBnwkCAlsICRuMCQAAxQYHBAEAAAAwBgUaEQAAAP8GAAADAAAAjAcAAE0LAnkaAAAAOQoLALsWCgKkCRgAAFxggZ8JAgJbCAkbjAkAAMUGBwQBAAAAMAYFHxIAAACfAwMBggABAG8GIwBNBQYHCgAAALwDAisLAAAAnwMDAm8EDABgBEkAAwAAAPsDBQBSBAIA4gUTAP8GAAADAAAATQoCexUAAAA5CQoAuxYJAqQIGAAAXGCBnwgCAlsHCByMCAAAjAkAAMUGBwQBAAAAMAYFrw0AAAD/BgAAAwAAAE0JAnsVAAAAuxYJAqQIGAAAXGCBnwgCAlsHCByMCAAAjAkAAMUGBwQBAAAAMAYF5A4AAAD/BgAAAwAAAIwHAACMCAAAjAkAAMUGBwQBAAAAMAYFyw8AAAD/BgAAAwAAAIwHAACMCAAAjAkAAMUGBwQBAAAAMAYFUhAAAAD/BgAAAwAAAIwHAACMCAAAjAkAAMUGBwQBAAAAMAYFGhEAAAD/BgAAAwAAAIwHAACMCAAAjAkAAMUGBwQBAAAAMAYFHxIAAACfAwMBggABAG8GJABNBQYHCgAAALwDAisLAAAAnwMDAm8EDABgBGUAAwAAAPsDBQBSBAIA4gUTAP8GAAADAAAAjAcAAIwIAABNDAJ5GgAAADkLDAC7FgsCpAoYAABcYIGfCgICWwkKIsUGBwQBAAAAMAYFrw0AAAD/BgAAAwAAAIwHAACMCAAATQsCeRoAAAC7FgsCpAoYAABcYIGfCgICWwkKIsUGBwQBAAAAMAYF5A4AAAD/BgAAAwAAAIwHAABNCwJ5GgAAADkKCwC7FgoCpAkYAABcYIGfCQICWwgJG4wJAADFBgcEAQAAADAGBcsPAAAA/wYAAAMAAACMBwAATQsCeRoAAAA5CgsAuxYKAqQJGAAAXGCBnwkCAlsICRuMCQAAxQYHBAEAAAAwBgVSEAAAAP8GAAADAAAAjAcAAE0LAnkaAAAAOQoLALsWCgKkCRgAAFxggZ8JAgJbCAkbjAkAAMUGBwQBAAAAMAYFGhEAAAD/BgAAAwAAAIwHAABNCwJ5GgAAADkKCwC7FgoCpAkYAABcYIGfCQICWwgJG4wJAADFBgcEAQAAADAGBR8SAAAAnwMDAYIAAQD7AwUAUgQCAOIFEwD/BgAAAwAAAIwHAACMCAAAjAkAAMUGBwQBAAAAMAYFrw0AAAD/BgAAAwAAAIwHAACMCAAAjAkAAMUGBwQBAAAAMAYF5A4AAAD/BgAAAwAAAIwHAACMCAAAjAkAAMUGBwQBAAAAMAYFyw8AAAD/BgAAAwAAAIwHAACMCAAAjAkAAMUGBwQBAAAAMAYFUhAAAAD/BgAAAwAAAIwHAACMCAAAjAkAAMUGBwQBAAAAMAYFGhEAAAD/BgAAAwAAAIwHAACMCAAAjAkAAMUGBwQBAAAAMAYFHxIAAACfAwMBggABACUDGwQAAABAAxwCERERERERkT8DHQMeAwIDHwMgBwAAgD8AAAAAAACAvwAAAAADIQMiAs3MzMzMzOw/AwQDCgMNAxADEwMWBQYNDg8QERICAAAAAAAAFEADIwMkAyUEAFxggQIAAAAAAAA5QAMmAgAAAAAAAC5AAgAAAAAAACRABwAAgD8AAAAAAACAPwAAAAAHAACAvwAAAAAAAIA/AAAAAAcAAIC/AAAAAAAAgL8AAAAABwAAAAAAAAAAAACAvwAAAAAHAACAPwAAAAAAAAAAAAAAAAIAAAAAAIBBQAcAAAAAAAAAAAAAgD8AAAAABwAAgL8AAAAAAAAAAAAAAAAAUScBGAAAAAAAAQAAAAABAwAAAAAAAAEAAQMAAAAAAAAAAAIAAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAPoACAAAAAAAAAAAAQAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAD6AAgAAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAA+gAIAAAAAAAAAAABAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAD6AAgAAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAABAAAAAAAAAAABAAAAAAAAAAABAAAAAAAAAAABAAAAAAAAAAD6AAgAAAAAAAAAAAEAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAA+gAIAAAAAAAAAAABAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAA+gAIAAAAAAAAAAABAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAPoACQAAAQAAAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAAAQAAAAAAAAAA+gpSAAAAABEAAAECAKQBowAAAKQAAQAAAABAbwICALwAABYDAAAAnwADAqQBAQAAAABAbwMEALwBARYDAAAAnwEDAk0CATEFAAAATQMCaQYAAAArAwUATQMClwcAAAC8AwP3CAAAAJ8DAgJvBgkAvAQD0woAAACfBAMCbwcLALwFA9MKAAAAnwUDAm8IDAC8BgPTCgAAAJ8GAwLiBxMAbwoNALwIBdMKAAAAnwgDAjAIB68NAAAAbwoOALwIBtMKAAAAnwgDAjAIB+QOAAAAbwoUALwIBtMKAAAAnwgDAjAIB8sPAAAAbwoVALwIBtMKAAAAnwgDAjAIB1IQAAAAbwoWALwIBtMKAAAAnwgDAjAIBxoRAAAAbwoXALwIBtMKAAAAnwgDAjAIBx8SAAAA4ggeAE0KB68NAAAATQkK7R8AAAAwCQgUGAAAAE0KB+QOAAAATQkK7R8AAAAwCQjBGQAAAE0KB8sPAAAATQkK7R8AAAAwCQhkGgAAAE0KB1IQAAAATQkK7R8AAAAwCQjVGwAAAE0KBxoRAAAATQkK7R8AAAAwCQhQHAAAAE0KBx8SAAAATQkK7R8AAAAwCQjfHQAAAOIJJgCkCikAAKBwgp8KAQIwCgkCIAAAAKQKKQAAoHCCnwoBAjAKCa8hAAAApAopAACgcIKfCgECMAoJEyIAAACkCikAAKBwgp8KAQIwCglQIwAAAKQKKQAAoHCCnwoBAjAKCXYkAAAApAopAACgcIKfCgECMAoJKCUAAACMCgAAwAsqABIACQASAAcAEgAIAMAMKwASAAcAEgAIABIACQDZDQIAEgEK/xIAAwASAAwAEgAFABIABAASAAsATQ4A/SwAAABSEA0AvA4Oxy0AAACfDgMBwQoAAIIAAQAuAygEAAAAQAMpAyoDKwMsAy0DLgMvAzADMQMyAzMDBAMKAw0DEAMTAxYFBg0ODxAREgM0AzUDNgM3AwcDCwMOAxEDFAMXBQYYGRobHB0DCAMBAwkDDAMPAxIDFQUGICEiIyQlAwIDGQQAoHCCBgAGAQM4AzkDAAECAQABGAAAAAAAAAABAAAAAAACAAEAAAAAAAAAAgAAAAEAAAABAAAAAgEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAEAAAAAAAMBAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAABAAAAAAADAQAAAAABAAAAAAEAAAAAAQAAAAABAAAAAAEAAAAABQMAAAAUAAAAEgAAAAAAAGIAAAAAAAAAAQAAAAADEwsn3LnKrwYhz01I6g0g3UwlA/r0KPWnDjw7pkFkg8cVYBUpIIW6bg==
+
+-- Decompiler will be improved VERY SOON!
+-- Decompiled with Konstant V2.1, a fast Luau decompiler made in Luau by plusgiant5 (https://discord.gg/brNTY8nX8t)
+-- Decompiled on 2025-11-03 08:51:39
+-- Luau version 6, Types version 3
+-- Time taken: 0.006303 seconds
+
+local Character_upvr = game:GetService("Players").LocalPlayer.Character
+if not Character_upvr then
+	Character_upvr = game:GetService("Players").LocalPlayer.CharacterAdded:Wait()
+end
+local HumanoidRootPart_upvr = Character_upvr:WaitForChild("HumanoidRootPart")
+local Torso = Character_upvr:WaitForChild("Torso")
+local tbl_upvr = {
+	RootJoint = HumanoidRootPart_upvr:WaitForChild("RootJoint");
+	Neck = Torso:WaitForChild("Neck");
+	RightShoulder = Torso:WaitForChild("Right Shoulder");
+	LeftShoulder = Torso:WaitForChild("Left Shoulder");
+	RightHip = Torso:WaitForChild("Right Hip");
+	LeftHip = Torso:WaitForChild("Left Hip");
+}
+local tbl_upvr_3 = {
+	RootJointC0 = tbl_upvr.RootJoint.C0;
+	NeckC0 = tbl_upvr.Neck.C0;
+	RightShoulderC0 = tbl_upvr.RightShoulder.C0;
+	LeftShoulderC0 = tbl_upvr.LeftShoulder.C0;
+	RightHipC0 = tbl_upvr.RightHip.C0;
+	LeftHipC0 = tbl_upvr.LeftHip.C0;
+}
+local tbl_upvr_2 = {
+	RootJointTilt = CFrame.new();
+	NeckTilt = CFrame.new();
+	RightShoulderTilt = CFrame.new();
+	LeftShoulderTilt = CFrame.new();
+	RightHipTilt = CFrame.new();
+	LeftHipTilt = CFrame.new();
+}
+local function LerpJoints_upvr(arg1, arg2) -- Line 43, Named "LerpJoints"
+	--[[ Upvalues[3]:
+		[1]: tbl_upvr_2 (readonly)
+		[2]: tbl_upvr (readonly)
+		[3]: tbl_upvr_3 (readonly)
+	]]
+	tbl_upvr_2.RootJointTilt = tbl_upvr_2.RootJointTilt:Lerp(CFrame.Angles(unpack(arg2.RootJoint)), 0.145)
+	tbl_upvr.RootJoint.C0 = tbl_upvr_3.RootJointC0 * tbl_upvr_2.RootJointTilt
+	tbl_upvr_2.NeckTilt = tbl_upvr_2.NeckTilt:Lerp(CFrame.Angles(unpack(arg2.Neck)), 0.145)
+	tbl_upvr.Neck.C0 = tbl_upvr_3.NeckC0 * tbl_upvr_2.NeckTilt
+	tbl_upvr_2.RightShoulderTilt = tbl_upvr_2.RightShoulderTilt:Lerp(CFrame.Angles(unpack(arg2.RightShoulder)), 0.145)
+	tbl_upvr.RightShoulder.C0 = tbl_upvr_3.RightShoulderC0 * tbl_upvr_2.RightShoulderTilt
+	tbl_upvr_2.LeftShoulderTilt = tbl_upvr_2.LeftShoulderTilt:Lerp(CFrame.Angles(unpack(arg2.LeftShoulder)), 0.145)
+	tbl_upvr.LeftShoulder.C0 = tbl_upvr_3.LeftShoulderC0 * tbl_upvr_2.LeftShoulderTilt
+	tbl_upvr_2.RightHipTilt = tbl_upvr_2.RightHipTilt:Lerp(CFrame.Angles(unpack(arg2.RightHip)), 0.145)
+	tbl_upvr.RightHip.C0 = tbl_upvr_3.RightHipC0 * tbl_upvr_2.RightHipTilt
+	tbl_upvr_2.LeftHipTilt = tbl_upvr_2.LeftHipTilt:Lerp(CFrame.Angles(unpack(arg2.LeftHip)), 0.145)
+	tbl_upvr.LeftHip.C0 = tbl_upvr_3.LeftHipC0 * tbl_upvr_2.LeftHipTilt
+end
+local function ResetJoints_upvr() -- Line 63, Named "ResetJoints"
+	--[[ Upvalues[3]:
+		[1]: tbl_upvr (readonly)
+		[2]: tbl_upvr_3 (readonly)
+		[3]: tbl_upvr_2 (readonly)
+	]]
+	tbl_upvr.RootJoint.C0 = tbl_upvr_3.RootJointC0
+	tbl_upvr.Neck.C0 = tbl_upvr_3.NeckC0
+	tbl_upvr.RightShoulder.C0 = tbl_upvr_3.RightShoulderC0
+	tbl_upvr.LeftShoulder.C0 = tbl_upvr_3.LeftShoulderC0
+	tbl_upvr.RightHip.C0 = tbl_upvr_3.RightHipC0
+	tbl_upvr.LeftHip.C0 = tbl_upvr_3.LeftHipC0
+	tbl_upvr_2.RootJointTilt = CFrame.new()
+	tbl_upvr_2.NeckTilt = CFrame.new()
+	tbl_upvr_2.RightShoulderTilt = CFrame.new()
+	tbl_upvr_2.LeftShoulderTilt = CFrame.new()
+	tbl_upvr_2.RightHipTilt = CFrame.new()
+	tbl_upvr_2.LeftHipTilt = CFrame.new()
+end
+local var8_upvw = 0
+local Humanoid_upvr = Character_upvr:WaitForChild("Humanoid")
+game:GetService("RunService").Heartbeat:Connect(function(arg1) -- Line 81, Named "UpdateDirectionalMovement"
+	--[[ Upvalues[6]:
+		[1]: var8_upvw (read and write)
+		[2]: Character_upvr (readonly)
+		[3]: ResetJoints_upvr (readonly)
+		[4]: HumanoidRootPart_upvr (readonly)
+		[5]: Humanoid_upvr (readonly)
+		[6]: LerpJoints_upvr (readonly)
+	]]
+	local workspace_GetServerTimeNow_result1 = workspace:GetServerTimeNow()
+	if (1/60) <= workspace_GetServerTimeNow_result1 - var8_upvw then
+		var8_upvw = workspace_GetServerTimeNow_result1
+		if Character_upvr:GetAttribute("NoDirectional") == true then
+			ResetJoints_upvr()
+			return
+		end
+		local any_VectorToObjectSpace_result1 = HumanoidRootPart_upvr.CFrame:VectorToObjectSpace(Humanoid_upvr.MoveDirection)
+		if 0.9 < any_VectorToObjectSpace_result1:Dot(Vector3.new(1, 0, -1).Unit) then
+			LerpJoints_upvr(any_VectorToObjectSpace_result1, {
+				RootJoint = {math.rad(-any_VectorToObjectSpace_result1.Z) * 5, 0, math.rad(-any_VectorToObjectSpace_result1.X) * 25};
+				Neck = {math.rad(any_VectorToObjectSpace_result1.Z) * 5, 0, math.rad(any_VectorToObjectSpace_result1.X) * 15};
+				RightShoulder = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 10, 0};
+				LeftShoulder = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 10, 0};
+				RightHip = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 10, 0};
+				LeftHip = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 10, 0};
+			})
+			return
+		end
+		if 0.9 < any_VectorToObjectSpace_result1:Dot(Vector3.new(1, 0, 1).Unit) then
+			LerpJoints_upvr(any_VectorToObjectSpace_result1, {
+				RootJoint = {math.rad(-any_VectorToObjectSpace_result1.Z) * 5, 0, math.rad(any_VectorToObjectSpace_result1.X) * 25};
+				Neck = {math.rad(any_VectorToObjectSpace_result1.Z) * 5, 0, math.rad(-any_VectorToObjectSpace_result1.X) * 25};
+				RightShoulder = {0, math.rad(any_VectorToObjectSpace_result1.X) * 10, 0};
+				LeftShoulder = {0, math.rad(any_VectorToObjectSpace_result1.X) * 10, 0};
+				RightHip = {0, math.rad(any_VectorToObjectSpace_result1.X) * 10, 0};
+				LeftHip = {0, math.rad(any_VectorToObjectSpace_result1.X) * 10, 0};
+			})
+			return
+		end
+		if 0.9 < any_VectorToObjectSpace_result1:Dot(Vector3.new(-1, 0, 1).Unit) then
+			LerpJoints_upvr(any_VectorToObjectSpace_result1, {
+				RootJoint = {math.rad(-any_VectorToObjectSpace_result1.Z) * 5, 0, math.rad(any_VectorToObjectSpace_result1.X) * 25};
+				Neck = {math.rad(any_VectorToObjectSpace_result1.Z) * 5, 0, math.rad(-any_VectorToObjectSpace_result1.X) * 25};
+				RightShoulder = {0, math.rad(any_VectorToObjectSpace_result1.X) * 10, 0};
+				LeftShoulder = {0, math.rad(any_VectorToObjectSpace_result1.X) * 10, 0};
+				RightHip = {0, math.rad(any_VectorToObjectSpace_result1.X) * 10, 0};
+				LeftHip = {0, math.rad(any_VectorToObjectSpace_result1.X) * 10, 0};
+			})
+			return
+		end
+		if 0.9 < any_VectorToObjectSpace_result1:Dot(Vector3.new(-1, 0, -1).Unit) then
+			LerpJoints_upvr(any_VectorToObjectSpace_result1, {
+				RootJoint = {math.rad(-any_VectorToObjectSpace_result1.Z) * 5, 0, math.rad(-any_VectorToObjectSpace_result1.X) * 25};
+				Neck = {math.rad(any_VectorToObjectSpace_result1.Z) * 5, 0, math.rad(any_VectorToObjectSpace_result1.X) * 15};
+				RightShoulder = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 10, 0};
+				LeftShoulder = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 10, 0};
+				RightHip = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 10, 0};
+				LeftHip = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 10, 0};
+			})
+			return
+		end
+		if 0.9 < any_VectorToObjectSpace_result1:Dot(Vector3.new(0, 0, -1).Unit) then
+			LerpJoints_upvr(any_VectorToObjectSpace_result1, {
+				RootJoint = {math.rad(-any_VectorToObjectSpace_result1.Z) * 10, 0, 0};
+				Neck = {math.rad(any_VectorToObjectSpace_result1.Z) * 10, 0, 0};
+				RightShoulder = {0, 0, 0};
+				LeftShoulder = {0, 0, 0};
+				RightHip = {0, 0, 0};
+				LeftHip = {0, 0, 0};
+			})
+			return
+		end
+		if 0.9 < any_VectorToObjectSpace_result1:Dot(Vector3.new(1, 0, 0).Unit) then
+			LerpJoints_upvr(any_VectorToObjectSpace_result1, {
+				RootJoint = {0, 0, math.rad(-any_VectorToObjectSpace_result1.X) * 35};
+				Neck = {0, 0, math.rad(any_VectorToObjectSpace_result1.X) * 35};
+				RightShoulder = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 15, 0};
+				LeftShoulder = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 15, 0};
+				RightHip = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 15, 0};
+				LeftHip = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 15, 0};
+			})
+			return
+		end
+		if 0.9 < any_VectorToObjectSpace_result1:Dot(Vector3.new(0, 0, 1).Unit) then
+			LerpJoints_upvr(any_VectorToObjectSpace_result1, {
+				RootJoint = {math.rad(-any_VectorToObjectSpace_result1.Z) * 10, 0, 0};
+				Neck = {math.rad(any_VectorToObjectSpace_result1.Z) * 10, 0, 0};
+				RightShoulder = {0, 0, 0};
+				LeftShoulder = {0, 0, 0};
+				RightHip = {0, 0, 0};
+				LeftHip = {0, 0, 0};
+			})
+			return
+		end
+		if 0.9 < any_VectorToObjectSpace_result1:Dot(Vector3.new(-1, 0, 0).Unit) then
+			LerpJoints_upvr(any_VectorToObjectSpace_result1, {
+				RootJoint = {0, 0, math.rad(-any_VectorToObjectSpace_result1.X) * 35};
+				Neck = {0, 0, math.rad(any_VectorToObjectSpace_result1.X) * 35};
+				RightShoulder = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 15, 0};
+				LeftShoulder = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 15, 0};
+				RightHip = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 15, 0};
+				LeftHip = {0, math.rad(-any_VectorToObjectSpace_result1.X) * 15, 0};
+			})
+			return
+		end
+		LerpJoints_upvr(any_VectorToObjectSpace_result1, {
+			RootJoint = {0, 0, 0};
+			Neck = {0, 0, 0};
+			RightShoulder = {0, 0, 0};
+			LeftShoulder = {0, 0, 0};
+			RightHip = {0, 0, 0};
+			LeftHip = {0, 0, 0};
+		})
+	end
+end)

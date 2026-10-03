@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.ControlModule.VRNavigation | Тип: ModuleScript
+-- Ignored

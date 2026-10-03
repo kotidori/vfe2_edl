@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.CameraModule.MouseLockController | Тип: ModuleScript
+-- Ignored

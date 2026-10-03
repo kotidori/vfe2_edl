@@ -1,0 +1,2 @@
+-- Путь: StarterPlayer.StarterPlayerScripts.PlayerModule.ControlModule.TouchJump | Тип: ModuleScript
+-- Ignored
